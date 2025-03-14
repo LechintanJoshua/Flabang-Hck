@@ -5,37 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <style>[id="col"]{
-        padding: 1rem;
-        background-color:#33b5e5;
-        border: 2px solid #fff;
-        color: #fff;
-    }
-    [id = "rand"]{
-        padding: 1rem;
-        background-color:#21dd31;
-        border: 2px solid #fff;
-        color: #fff;
-    }
+    <style>
+        .col{
+
+        }
     </style>
 </head>
-
 <body>
+    <nav class="navbar" style="background-color: #68c4af;">
+        <div class="container-fluid" style="background-color: #68c4af;">
+          <a class="navbar-brand" href="#">
+            <img src="/imagini/navbar_logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-center">
+          </a>
 
-    <nav> </nav>
-    <div class="container-fluid border" id = "col">
-        <div class="row">
-            <div id = "rand"><button>Acasa</button></div>
-            <div><button>inapoi</button></div>
+        <div class = "col">flabang</div>
+        <div class = "col">Pag1</div>
+        <div class = "col" style="align-self: start;">pag2</div>
+        <div class="btn-group dropstart position-fixed top-0 end-0 m-3">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Menu
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.html">Home</a></li>
+                <li><a class="dropdown-item" href="login.html">Login</a></li>
+            </ul>
         </div>
-    </div>
-    <div class="container-sm border">100% wide until small breakpoint</div>
-    <div class="container-md border">100% wide until medium breakpoint</div>
-    <div class="container-lg border">100% wide until large breakpoint</div>
-    <div class="container-xl border">100% wide until extra large breakpoint</div>
-    <div class="container-xxl border">100% wide until extra extra large breakpoint</div>
-    
+        </div>
+    </nav>  
     <script src="js/bootstrap.bundle.js"></script>
 </body>
-
 </html>
