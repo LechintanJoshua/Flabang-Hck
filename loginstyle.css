@@ -3,8 +3,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: aquamarine;
-    background: url('') no-repeat center center/cover;
+    background-color: rgb(194, 179, 249);
+    /* background: url('') no-repeat center center/cover; */
     font-family: Arial, sans-serif;
     margin: 0;
 }
