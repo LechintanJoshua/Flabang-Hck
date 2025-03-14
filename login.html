@@ -4,36 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <style>[id="col"]{
-        padding: 1rem;
-        background-color:#33b5e5;
-        border: 2px solid #fff;
-        color: #fff;
-    }
-    [id = "rand"]{
-        padding: 1rem;
-        background-color:#21dd31;
-        border: 2px solid #fff;
-        color: #fff;
-    }
-    </style>
+    <link rel="stylesheet" href="loginstyle.css">
 </head>
 <body>
-    <h1>LOGIN</h1>
 
-    <div class="btn-group dropstart position-fixed top-0 end-0 m-3">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Menu
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="index.html">Home</a></li>
-            <li><a class="dropdown-item" href="login.html">Login</a></li>
-            <li><a class="dropdown-item" href="register.html">Register</a></li>
+    <div class="login-card">
+        <h2>Login</h2>
+        <form>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email">
+            </div>
 
-        </ul>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="Enter your password">
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
     </div>
-    
-    <script src="js/bootstrap.bundle.js"></script>
+
+
 </body>
 </html>
