@@ -9,13 +9,13 @@ body {
 }
 
 .register-card {
-    background: #f2f6c3; /* Alb semi-transparent */
+    background: #f2f6c3; 
     padding: 30px;
-    border-radius: 15px; /* Colțuri rotunjite */
+    border-radius: 15px;
     box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.2);
     width: 320px;
     text-align: center;
-    backdrop-filter: blur(5px); /* Efect de blur pe fundal */
+    backdrop-filter: blur(5px);
 }
 
 .input-group {
@@ -30,7 +30,7 @@ body {
 }
 
 .input-group input {
-    width: 100%;
+    width: 93%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px; 
