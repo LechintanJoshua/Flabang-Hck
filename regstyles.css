@@ -46,8 +46,43 @@ button {
     font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.butoane {
+    display: flex;
+    justify-content: space-evenly; /* Distribuie spațiul între butoane */
+    gap: 10px; /* Spațiu între butoane */
+}
+
+.butoane button,
+.butoane .login-link {
+    flex-grow: 1; /* Permite butoanelor să ocupe spațiul disponibil */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.butoane button {
+    background-color: #007bff;
+    color: white;
+}
+
+.butoane .login-link {
+    background-color: #d490e5;
+    color: white;
+    width: 7vw;
 }
 
 button:hover {
-    background:	#68c4af;
+    background: #68c4af;
+}
+
+.link:hover {
+    background-color: rgb(197, 88, 205);
 }
