@@ -1,0 +1,106 @@
+.proiecte-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.proiecte-titlu {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 2.2rem;
+}
+
+.proiecte-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.proiect-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.proiect-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.proiect-imagine {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.proiect-continut {
+    padding: 20px;
+}
+
+.proiect-titlu {
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+    color: #0097b2; 
+}
+
+.proiect-descriere {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.proiect-progres-container {
+    margin: 15px 0;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    height: 12px;
+}
+
+.proiect-progres-bar {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #0097b2, #00b2d1);
+}
+
+.proiect-statistici {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.proiect-buton {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: #0097b2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.proiect-buton:hover {
+    background-color: #007a8f;
+}
+
+.proiect-etichetă {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-right: 8px;
+    margin-bottom: 12px;
+    border-radius: 20px;
+    background-color: #e6f7fa;
+    color: #0097b2;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
