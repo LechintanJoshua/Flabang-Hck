@@ -1,15 +1,18 @@
 .card {
-    background-color: #0298c8;
-    width: 20vw;
+    width: 30vw;
     border-radius: 20px;
-    height:5vh;
+    height:8vh;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background-color: white;
+    background-color: rgb(167, 193, 250);
     overflow: hidden;
     transition: background 0.3s ease-in-out, transform 0.2s ease;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
+    font-size: 1rem;
     
+}
+.container{
+    text-align: center;
 }
 
 .card img {
