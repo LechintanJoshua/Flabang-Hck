@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/stil.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="stil.css">
+</head>
+<header>
+    <nav class="navbar">
+
+        <div class="brand">
+            <img src="/Imagini/navbar_logo.png" alt="Logo">
+            <span>Flabang</span>
+        </div>
+        
+        <div class="dropdown">
+            <button onclick="toggleDropdown()">Meniu &#9662;</button>
+            <div class="dropdown-content" id="dropdownMenu">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <br><br><br><br><br><br>
+    <h1 style="text-align: center;font-family:Verdana, Geneva, Tahoma, sans-serif;font-size: 3rem;" ;>Become the change
+        you want to see!</h1>
+    <div class="container">
+
+        <p style="font-size: 1.5rem;padding-left: 5%;margin-top: 3%;">
+            At <strong>Ong United</strong>, we believe in the power of kindness and collective action. Our mission is to
+            bring communities together through volunteering and donations, creating a better world for those in need.
+            Whether you want to lend a helping hand, support a cause, or change lives, your contribution matters.
+
+            Join us in feeding the hungry, educating children, protecting the environment, and supporting those in
+            crisis. Every small effort counts, and together, we can build a future filled with hope and compassion.
+
+            Be the change. Donate. Volunteer. Inspire. 💙✨
+        </p>
+        <img src="/Imagini/volunteer210324.jpg" id="main_img">
+
+    </div>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropdown button')) {
+                var dropdown = document.getElementById("dropdownMenu");
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
