@@ -11,6 +11,8 @@
     <section class="section-background">
     <div class="proiecte-container">
         <h2 class="proiecte-titlu">Proiecte Active</h2>
+
+        <button class="buton-implicare">Implică-te acum!</button>
         
         <div class="proiecte-grid" id="proiecte-grid">
             <!-- Proiectele vor fi adăugate dinamic din JavaScript -->
@@ -118,6 +120,13 @@
 
         // Rulăm funcția când se încarcă pagina
         document.addEventListener('DOMContentLoaded', afișeazăProiecte);
+
+        document.querySelector('.buton-implicare').addEventListener('click', function() {
+    alert('Mulțumim pentru implicare!'); // Exemplu simplu
+    // Sau redirecționează către o altă pagină:
+    // window.location.href = 'pagina-de-implicare.html';
+    });
+    
     </script>
 
     <script>
