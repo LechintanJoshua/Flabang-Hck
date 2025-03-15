@@ -47,23 +47,10 @@ body {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-.logout-button {
-    background: #ff4757;
-    color: white;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-left: 15px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logout-button:hover {
-    background: #ff6b81;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+.right-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .user-menu {
@@ -75,17 +62,33 @@ body {
 #welcome-message {
     color: white;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 30px;
+}
+
+.logout-button {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background: #ff6b81;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .dropdown {
     position: relative;
-    display: inline-block;
 }
 
 .dropdown button {
     background: #0298c8;
-    color: #fff;
+    color: white;
     border: none;
     padding: 12px 18px;
     font-size: 18px;
@@ -99,19 +102,14 @@ body {
     transform: scale(1.05);
 }
 
-.dropdown button:focus {
-    outline: none;
-}
-
 .dropdown-content {
     display: none;
     position: absolute;
     right: 0;
-    background: #fff;
-    min-width: 200px;
-    border-radius: 6px;
+    background: white;
+    min-width: 180px;
+    border-radius: 5px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
 }
 
 .dropdown-content a {
@@ -126,8 +124,6 @@ body {
 .dropdown-content a:hover {
     background: #f1f1f1;
 }
-
-
 
 .container {
     display: flex;
@@ -220,7 +216,6 @@ a:hover {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    left: auto;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -240,74 +235,6 @@ a:hover {
     transform: translateY(-2px);
 }
 
-footer{
+footer {
     text-align: center;
-    justify-content: center;
-}
-
-.map-button::before {
-    content: "Pin a location";
-    position: absolute;
-    background-color: #333;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 14px;
-    bottom: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-    white-space: nowrap;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.map-button:hover::before {
-    opacity: 1;
-    visibility: visible;
-}
-
-.map-button i {
-    font-size: 18px;
-}
-
-.welcome-container {
-    position: relative;
-    overflow: hidden;
-    padding: 5px 0;
-}
-
-.welcome-text {
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
-    position: relative;
-    display: inline-block;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    transform: translateY(0);
-    transition: all 0.3s ease;
-}
-
-.welcome-text::before {
-    margin-right: 8px;
-    animation: wave 2s infinite;
-}
-
-
-.user-menu:hover .welcome-underline {
-    width: 100%;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .welcome-text {
-        font-size: 1rem;
-    }
-    
-    .welcome-text::before {
-        margin-right: 5px;
-    }
 }

@@ -15,22 +15,21 @@
                 <img src="/imagini/navbar_logo.png" alt="Logo">
                 <span>Flabang</span>
             </div>
-
-            <div class="dropdown">
-                <button onclick="toggleDropdown()">Meniu &#9662;</button>
-                <div class="dropdown-content" id="dropdownMenu">
-                    <a href="login.html">Login</a>
-                    <a href="register.html">Register</a>
-                    <a href="dashboard.html">Dashboard</a>
-                </div>
-            </div>
-
-            <div class="user-menu">
-                <div class="welcome-container">
+        
+            <div class="right-menu">
+                <div class="user-menu">
                     <span id="welcome-message" class="welcome-text">Welcome!</span>
-                    <div class="welcome-underline"></div>
+                    <button class="logout-button">Logout</button>
                 </div>
-                <button class="logout-button">Logout</button>
+        
+                <div class="dropdown">
+                    <button onclick="toggleDropdown()">Meniu &#9662;</button>
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="login.html">Login</a>
+                        <a href="register.html">Register</a>
+                        <a href="dashboard.html">Dashboard</a>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -41,7 +40,6 @@
     </div>
 
     <script>
-        // Get user info from the server
         fetch('/api/auth/status')
             .then(response => response.json())
             .then(data => {
