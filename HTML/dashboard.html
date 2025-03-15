@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/stil.css">
-    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <title>Flabang Dashboard</title>
 </head>
 
 <body>
@@ -16,29 +18,143 @@
                 <span>Flabang</span>
             </div>
 
-            <div class="dropdown">
-                <button onclick="toggleDropdown()">Meniu &#9662;</button>
-                <div class="dropdown-content" id="dropdownMenu">
-                    <a href="login.html">Login</a>
-                    <a href="register.html">Register</a>
-                    <a href="dashboard.html">Dashboard</a>
-                </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="#">Projects</a>
+                <a href="#">Analytics</a>
+                <a href="#">Settings</a>
             </div>
 
             <div class="user-menu">
                 <div class="welcome-container">
                     <span id="welcome-message" class="welcome-text">Welcome!</span>
-                    <div class="welcome-underline"></div>
                 </div>
-                <button class="logout-button">Logout</button>
+                <div class="dropdown">
+                    <button class="profile-button">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+                        <a href="login.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
 
-    <div class="container">
-        <h1>Welcome to Your Dashboard</h1>
-        <p>You are successfully logged in!</p>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="sidebar-item active">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Statistics</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-tasks"></i>
+                <span>Tasks</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-calendar"></i>
+                <span>Calendar</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Locations</span>
+            </div>
+        </div>
+
+        <main class="content">
+            <div class="welcome-banner">
+                <h1>Welcome to Your Dashboard</h1>
+                <p>Manage your projects and track your progress</p>
+            </div>
+
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Projects</h3>
+                        <p class="stat-number">12</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Tasks</h3>
+                        <p class="stat-number">48</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Completed</h3>
+                        <p class="stat-number">36</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Notifications</h3>
+                        <p class="stat-number">5</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p class="activity-text">New project added: <strong>Website Redesign</strong></p>
+                            <p class="activity-time">Today, 10:30 AM</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p class="activity-text">Task completed: <strong>Update user interface</strong></p>
+                            <p class="activity-time">Yesterday, 4:15 PM</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p class="activity-text">New comment on <strong>Mobile App Development</strong></p>
+                            <p class="activity-time">Yesterday, 2:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
+
+    <button class="map-button" onclick="openGoogleMaps()">
+        <i class="fas fa-map-marker-alt"></i>
+    </button>
+
+    <footer>
+        <p>&copy; 2025 Flabang. All rights reserved.</p>
+    </footer>
 
     <script>
         // Get user info from the server
@@ -52,20 +168,17 @@
             })
             .catch(error => console.error('Error:', error));
 
-        function toggleDropdown() {
-            var dropdown = document.getElementById("dropdownMenu");
-            if (dropdown.style.display === "block") {
-                dropdown.style.display = "none";
-            } else {
-                dropdown.style.display = "block";
-            }
-        }
+        // Toggle dropdown for profile menu
+        document.querySelector('.profile-button').addEventListener('click', function() {
+            document.getElementById('dropdownMenu').classList.toggle('show');
+        });
 
-        window.onclick = function (event) {
-            if (!event.target.matches('.dropdown button')) {
+        // Close dropdown when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-button')) {
                 var dropdown = document.getElementById("dropdownMenu");
-                if (dropdown.style.display === "block") {
-                    dropdown.style.display = "none";
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
                 }
             }
         }
@@ -73,7 +186,6 @@
         function openGoogleMaps() {
             window.open('https://maps.google.com', '_blank');
         }
-
     </script>
 </body>
 
