@@ -82,7 +82,7 @@ function createFundraisingCard(title,email, cardInfo, amount, description) {
         <p><strong>Title:</strong> ${title}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Card Info:</strong> ${cardInfo}</p>
-        <p><strong>Amount:</strong> $${amount}</p>
+        <p><strong>Amount:</strong> ${amount}</p>
         <p><strong>Description:</strong> ${description}</p>
     `;
 
