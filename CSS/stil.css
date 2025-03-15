@@ -92,7 +92,7 @@ body {
     display: block;
     border-radius: 20px;
     height: 50vh;
-    margin-right: 10%;
+    margin-right: 5%;
 }
 
 h1 {
@@ -124,4 +124,7 @@ a {
 a:hover {
     text-decoration: underline;
     color: #0298c8;
+}
+.fund-raise{
+   text-align: center;
 }
