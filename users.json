@@ -6,5 +6,13 @@
     "email": "upetremihai@gmail.com",
     "password": "$2b$10$m3pt0se3lfIANf3br1m/BeXJHO4U0IGvNcqPeaguthgartZ1uQaIO",
     "createdAt": "2025-03-15T12:30:12.819Z"
+  },
+  {
+    "id": "1742050052730",
+    "firstName": "mihai",
+    "lastName": "dd",
+    "email": "mal@g.r",
+    "password": "$2b$10$jT5kPsU/JqOTvMc8LvdyNuQdY5eDJQHdCm67cwGAPAPy2ipLQI4Ji",
+    "createdAt": "2025-03-15T14:47:32.730Z"
   }
 ]
