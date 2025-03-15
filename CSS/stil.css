@@ -174,10 +174,10 @@ a:hover {
 }
 
 .map-button {
-    position: fixed; 
-    bottom: 20px;    
-    right: 20px;     
-    left: auto;      
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    left: auto;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -188,13 +188,18 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.2s;
 }
 
 .map-button:hover {
     background-color: #3367D6;
     transform: translateY(-2px);
+}
+
+footer {
+    text-align: center;
+    justify-content: center;
 }
 
 .map-button::before {
@@ -224,6 +229,3 @@ a:hover {
 .map-button i {
     font-size: 18px;
 }
-
-
-
