@@ -16,6 +16,14 @@
                 <span>Flabang</span>
             </div>
 
+            <div class="user-menu">
+                <div class="welcome-container">
+                    <span id="welcome-message" class="welcome-text">Welcome!</span>
+                    <div class="welcome-underline"></div>
+                </div>
+                <button class="logout-button">Logout</button>
+            </div>
+
             <div class="dropdown">
                 <button onclick="toggleDropdown()">Meniu &#9662;</button>
                 <div class="dropdown-content" id="dropdownMenu">
@@ -23,14 +31,6 @@
                     <a href="register.html">Register</a>
                     <a href="dashboard.html">Dashboard</a>
                 </div>
-            </div>
-
-            <div class="user-menu">
-                <div class="welcome-container">
-                    <span id="welcome-message" class="welcome-text">Welcome!</span>
-                    <div class="welcome-underline"></div>
-                </div>
-                <button class="logout-button">Logout</button>
             </div>
         </nav>
     </header>
@@ -41,7 +41,6 @@
     </div>
 
     <script>
-        // Get user info from the server
         fetch('/api/auth/status')
             .then(response => response.json())
             .then(data => {
@@ -51,8 +50,7 @@
                 }
             })
             .catch(error => console.error('Error:', error));
-
-        function toggleDropdown() {
+            function toggleDropdown() {
             var dropdown = document.getElementById("dropdownMenu");
             if (dropdown.style.display === "block") {
                 dropdown.style.display = "none";
@@ -61,17 +59,17 @@
             }
         }
 
-        window.onclick = function (event) {
+            window.onclick = function (event) {
             if (!event.target.matches('.dropdown button')) {
                 var dropdown = document.getElementById("dropdownMenu");
-                if (dropdown.style.display === "block") {
-                    dropdown.style.display = "none";
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
                 }
             }
         }
 
-        function openGoogleMaps() {
-            window.open('https://maps.google.com', '_blank');
+            function openGoogleMaps() {
+                window.open('https://maps.google.com', '_blank');
         }
 
     </script>
