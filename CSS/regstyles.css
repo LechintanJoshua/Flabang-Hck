@@ -51,13 +51,13 @@ button {
 
 .butoane {
     display: flex;
-    justify-content: space-evenly; /* Distribuie spațiul între butoane */
-    gap: 10px; /* Spațiu între butoane */
+    justify-content: space-evenly;
+    gap: 10px; 
 }
 
 .butoane button,
 .butoane .login-link {
-    flex-grow: 1; /* Permite butoanelor să ocupe spațiul disponibil */
+    flex-grow: 1; 
     padding: 10px 20px;
     border: none;
     border-radius: 20px;

@@ -182,3 +182,56 @@ a:hover {
         margin-bottom: 20px;
     }
 }
+
+.map-button {
+    position: fixed; 
+    bottom: 20px;    
+    right: 20px;     
+    left: auto;      
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.map-button:hover {
+    background-color: #3367D6;
+    transform: translateY(-2px);
+}
+
+.map-button::before {
+    content: "Pin a location";
+    position: absolute;
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.map-button:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.map-button i {
+    font-size: 18px;
+}
+
