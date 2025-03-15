@@ -8,13 +8,20 @@
 </head>
 <body>
     <!-- Secțiunea de proiecte active -->
-    <section class="proiecte-container">
+    <section class="section-background">
+    <div class="proiecte-container">
         <h2 class="proiecte-titlu">Proiecte Active</h2>
         
         <div class="proiecte-grid" id="proiecte-grid">
             <!-- Proiectele vor fi adăugate dinamic din JavaScript -->
         </div>
-    </section>
+        
+        <!-- Formularul pentru adăugare proiect -->
+        <div id="formular-proiect" class="formular-popup">
+            <!-- codul formularului -->
+        </div>
+    </div>
+</section>
 
     <script>
         // Array cu datele proiectelor active
@@ -62,6 +69,7 @@
                 voluntari: 27,
                 etichete: ["Educație", "Tehnologie", "Digital"],
                 linkImplicare: "#implicare-tehnologie"
+
             }
         ];
 
@@ -110,6 +118,10 @@
 
         // Rulăm funcția când se încarcă pagina
         document.addEventListener('DOMContentLoaded', afișeazăProiecte);
+    </script>
+
+    <script>
+        
     </script>
 </body>
 </html>
