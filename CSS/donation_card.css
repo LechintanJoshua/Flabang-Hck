@@ -1,0 +1,41 @@
+.card {
+    width:50vw;
+    border-radius: 20px;
+    height:50vh;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: white;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /*margin: 0 auto;
+    display: block;
+    padding-top:10px;
+    padding-top:10px;*/
+}
+
+.loading-bar {
+    background-color: #ccc9c9;
+    height: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.progress {
+    background-color: rgb(10, 161, 10);
+    width: 65%;
+    height: 100%;
+}
+
+.loading-bar .progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    font-family: monospace;
+}
