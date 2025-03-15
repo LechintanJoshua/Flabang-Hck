@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="/css/dashboard.css">
-    <title>Flabang Dashboard</title>
+    <title>VolunteerHub Dashboard</title>
 </head>
 
 <body>
@@ -15,14 +15,14 @@
         <nav class="navbar">
             <div class="brand">
                 <img src="/imagini/navbar_logo.png" alt="Logo">
-                <span>Flabang</span>
+                <span>VolunteerHub</span>
             </div>
 
             <div class="nav-links">
                 <a href="dashboard.html" class="active">Dashboard</a>
-                <a href="#">Projects</a>
-                <a href="#">Analytics</a>
-                <a href="#">Settings</a>
+                <a href="#">Events</a>
+                <a href="#">Impact</a>
+                <a href="#">Community</a>
             </div>
 
             <div class="user-menu">
@@ -34,9 +34,9 @@
                         <i class="fas fa-user-circle"></i>
                     </button>
                     <div class="dropdown-content" id="dropdownMenu">
-                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="certificates.html"><i class="fas fa-certificate"></i> Certificates</a>
                         <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
-                        <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
                         <a href="login.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
                 </div>
@@ -51,64 +51,118 @@
                 <span>Home</span>
             </div>
             <div class="sidebar-item">
-                <i class="fas fa-chart-line"></i>
-                <span>Statistics</span>
+                <i class="fas fa-calendar-alt"></i>
+                <span>Upcoming Events</span>
             </div>
             <div class="sidebar-item">
-                <i class="fas fa-tasks"></i>
-                <span>Tasks</span>
+                <i class="fas fa-history"></i>
+                <span>My History</span>
             </div>
             <div class="sidebar-item">
-                <i class="fas fa-calendar"></i>
-                <span>Calendar</span>
+                <i class="fas fa-users"></i>
+                <span>Teams</span>
             </div>
             <div class="sidebar-item">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>Locations</span>
+                <span>Find Opportunities</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-star"></i>
+                <span>Recognition</span>
             </div>
         </div>
 
         <main class="content">
             <div class="welcome-banner">
-                <h1>Welcome to Your Dashboard</h1>
-                <p>Manage your projects and track your progress</p>
+                <h1>Welcome to Your Volunteer Dashboard</h1>
+                <p>Making a difference, one volunteer hour at a time</p>
             </div>
 
             <div class="stats-cards">
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <i class="fas fa-project-diagram"></i>
+                        <i class="fas fa-clock"></i>
                     </div>
                     <div class="stat-info">
-                        <h3>Projects</h3>
-                        <p class="stat-number">12</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-tasks"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>Tasks</h3>
+                        <h3>Hours Volunteered</h3>
                         <p class="stat-number">48</p>
                     </div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-calendar-check"></i>
                     </div>
                     <div class="stat-info">
-                        <h3>Completed</h3>
-                        <p class="stat-number">36</p>
+                        <h3>Events Attended</h3>
+                        <p class="stat-number">12</p>
                     </div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <i class="fas fa-bell"></i>
+                        <i class="fas fa-certificate"></i>
                     </div>
                     <div class="stat-info">
-                        <h3>Notifications</h3>
+                        <h3>Certificates</h3>
                         <p class="stat-number">5</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Impact Score</h3>
+                        <p class="stat-number">385</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upcoming-events">
+                <h2>Upcoming Volunteer Opportunities</h2>
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="month">MAR</span>
+                            <span class="day">18</span>
+                        </div>
+                        <div class="event-details">
+                            <h3>Community Garden Clean-up</h3>
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Riverside Park</p>
+                            <p class="event-time"><i class="fas fa-clock"></i> 9:00 AM - 12:00 PM</p>
+                        </div>
+                        <div class="event-actions">
+                            <button class="register-btn">Register</button>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="month">MAR</span>
+                            <span class="day">24</span>
+                        </div>
+                        <div class="event-details">
+                            <h3>Food Bank Distribution</h3>
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Community Center</p>
+                            <p class="event-time"><i class="fas fa-clock"></i> 2:00 PM - 5:00 PM</p>
+                        </div>
+                        <div class="event-actions">
+                            <button class="register-btn">Register</button>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="month">APR</span>
+                            <span class="day">02</span>
+                        </div>
+                        <div class="event-details">
+                            <h3>Reading to Seniors</h3>
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Sunshine Care Home</p>
+                            <p class="event-time"><i class="fas fa-clock"></i> 10:00 AM - 12:00 PM</p>
+                        </div>
+                        <div class="event-actions">
+                            <button class="register-btn">Register</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,20 +172,20 @@
                 <div class="activity-list">
                     <div class="activity-item">
                         <div class="activity-icon">
-                            <i class="fas fa-plus-circle"></i>
+                            <i class="fas fa-check-circle"></i>
                         </div>
                         <div class="activity-details">
-                            <p class="activity-text">New project added: <strong>Website Redesign</strong></p>
-                            <p class="activity-time">Today, 10:30 AM</p>
+                            <p class="activity-text">Completed <strong>Beach Clean-up</strong> event</p>
+                            <p class="activity-time">March 10, 2025 • 4 hours</p>
                         </div>
                     </div>
                     <div class="activity-item">
                         <div class="activity-icon">
-                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-award"></i>
                         </div>
                         <div class="activity-details">
-                            <p class="activity-text">Task completed: <strong>Update user interface</strong></p>
-                            <p class="activity-time">Yesterday, 4:15 PM</p>
+                            <p class="activity-text">Earned <strong>Environmental Champion</strong> badge</p>
+                            <p class="activity-time">March 12, 2025</p>
                         </div>
                     </div>
                     <div class="activity-item">
@@ -139,8 +193,8 @@
                             <i class="fas fa-comment"></i>
                         </div>
                         <div class="activity-details">
-                            <p class="activity-text">New comment on <strong>Mobile App Development</strong></p>
-                            <p class="activity-time">Yesterday, 2:00 PM</p>
+                            <p class="activity-text">Received feedback from <strong>Animal Shelter Day</strong></p>
+                            <p class="activity-time">March 5, 2025</p>
                         </div>
                     </div>
                 </div>
@@ -153,7 +207,7 @@
     </button>
 
     <footer>
-        <p>&copy; 2025 Flabang. All rights reserved.</p>
+        <p>&copy; 2025 VolunteerHub. Making the world better together.</p>
     </footer>
 
     <script>
