@@ -260,3 +260,32 @@ button:hover::before {
 .register-card {
     animation: fadeInUp 0.8s ease forwards;
 }
+
+/* Stiluri pentru background și overlay */
+.section-background {
+    position: relative;
+    background-image: url('https://placehold.co/1920x1080/e8f4f7/white?text=Background');
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 60px 0;
+}
+
+.section-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.85); /* Overlay semi-transparent */
+    z-index: 1;
+}
+
+/* Modificare pentru container pentru a-l poziționa deasupra fundalului */
+.proiecte-container {
+    position: relative;
+    z-index: 2; /* Așează conținutul deasupra overlay-ului */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}

@@ -28,7 +28,8 @@ app.use(session({
 // Serve static files from the different folders
 app.use('/css', express.static(path.join(__dirname, 'CSS')));
 app.use('/imagini', express.static(path.join(__dirname, 'Imagini')));
-app.use(express.static(path.join(__dirname, 'HTML'))); // Serve HTML files from root URL
+app.use(express.static(path.join(__dirname, 'HTML')));
+app.use('/javascript', express.static(path.join(__dirname,'Javascript')));// Serve HTML files from root URL
 
 // Initialize users.json if it doesn't exist
 if (!fs.existsSync(USERS_FILE)) {
