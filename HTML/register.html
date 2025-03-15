@@ -1,51 +1,78 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="../CSS/regstyles.css">
+    <link rel="stylesheet" href="/css/regstyles.css">
+    <style>
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-
-
     <div class="register-card">
         <h2>Register</h2>
-        <form action = "/register" method = "POST">
+        <div id="error-message" class="error-message"></div>
+        <form action="/register" method="POST">
             <div class="input-group">
                 <label>First Name</label>
-                <input type="text" name="firstName" placeholder="Enter your first name">
+                <input type="text" name="firstName" id="firstName" placeholder="Enter your first name" required>
             </div>
 
             <div class="input-group">
                 <label>Last Name</label>
-                <input type="text" name = "lastName" placeholder="Enter your last name">
+                <input type="text" name="lastName" id="lastName" placeholder="Enter your last name" required>
             </div>
 
             <div class="input-group">
                 <label>Email</label>
-                <input type="email" name = "email" placeholder="Enter your email">
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
             </div>
 
             <div class="input-group">
                 <label>Password</label>
-                <input type="password" name = "password" placeholder="Enter your password">
+                <input type="password" name="password" id="password" placeholder="Enter your password" required>
             </div>
 
-                <div class="butoane">
-                    <button type="submit">Register</button>
+            <div class="butoane">
+                <button type="submit">Register</button>
 
-                    <div>
-                        <a href="login.html" class="login-link">Login</a>
-                    </div>
+                <div>
+                    <a href="login.html" class="login-link">Login</a>
                 </div>
-            
+            </div>
         </form>
     </div>
 
+    <script>
+        // Check for registration errors on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const errorMessage = sessionStorage.getItem('registerError');
+            if (errorMessage) {
+                // Display error message
+                const errorElement = document.getElementById('error-message');
+                errorElement.textContent = errorMessage;
+                errorElement.style.display = 'block';
+                
+                // Clear the form fields
+                document.getElementById('firstName').value = '';
+                document.getElementById('lastName').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('password').value = '';
+                
+                // Remove the error from session storage
+                sessionStorage.removeItem('registerError');
+            }
+        });
+    </script>
 </body>
 
 </html>
