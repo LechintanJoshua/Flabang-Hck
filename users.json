@@ -14,5 +14,21 @@
     "email": "mal@g.r",
     "password": "$2b$10$jT5kPsU/JqOTvMc8LvdyNuQdY5eDJQHdCm67cwGAPAPy2ipLQI4Ji",
     "createdAt": "2025-03-15T14:47:32.730Z"
+  },
+  {
+    "id": "1742050793666",
+    "firstName": "bau",
+    "lastName": "bau",
+    "email": "bau@bau.com",
+    "password": "$2b$10$2VpabyWtPX8DXwXW9N33L.TtZSBFHrkKINmDFYCKVZaWGivqoKKxS",
+    "createdAt": "2025-03-15T14:59:53.666Z"
+  },
+  {
+    "id": "1742052016509",
+    "firstName": " an",
+    "lastName": "an",
+    "email": "an@an.an",
+    "password": "$2b$10$OzMj/IfBfqnV.t1Zqv3yWOfjGBtTBYFL0B1PsRevNG0gcHX3acfFy",
+    "createdAt": "2025-03-15T15:20:16.509Z"
   }
 ]

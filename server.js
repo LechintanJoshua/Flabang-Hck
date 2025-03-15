@@ -62,7 +62,12 @@ app.post('/login', async (req, res) => {
     
     // Validate input
     if (!email || !password) {
-      return res.status(400).json({ error: 'Email and password are required' });
+      return res.status(400).send(`
+        <script>
+          alert("Email and password are required");
+          window.location.href = "/login.html";
+        </script>
+      `);
     }
 
     // Read users from file
@@ -72,19 +77,34 @@ app.post('/login', async (req, res) => {
       users = JSON.parse(data);
     } catch (err) {
       console.error('Error reading users file:', err);
-      return res.status(500).json({ error: 'Server error' });
+      return res.status(500).send(`
+        <script>
+          alert("Server error. Please try again later.");
+          window.location.href = "/login.html";
+        </script>
+      `);
     }
 
     // Find user by email
     const user = users.find(u => u.email === email);
     if (!user) {
-      return res.status(401).json({ error: 'Invalid email or password' });
+      return res.status(401).send(`
+        <script>
+          sessionStorage.setItem("loginError", "Invalid email or password");
+          window.location.href = "/login.html";
+        </script>
+      `);
     }
 
     // Compare passwords
     const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
-      return res.status(401).json({ error: 'Invalid email or password' });
+      return res.status(401).send(`
+        <script>
+          sessionStorage.setItem("loginError", "Invalid email or password");
+          window.location.href = "/login.html";
+        </script>
+      `);
     }
 
     // Set session variables
@@ -96,25 +116,16 @@ app.post('/login', async (req, res) => {
       email: user.email
     };
 
-    // Redirect or respond with success
-    if (req.headers['content-type'] === 'application/json') {
-      // API request
-      return res.status(200).json({ 
-        success: true, 
-        message: 'Login successful',
-        user: {
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email
-        }
-      });
-    } else {
-      // Form submission
-      return res.redirect('/dashboard.html');
-    }
+    // Redirect to dashboard
+    res.redirect('/dashboard.html');
   } catch (error) {
     console.error('Login error:', error);
-    res.status(500).json({ error: 'Login failed' });
+    res.status(500).send(`
+      <script>
+        alert("Login failed. Please try again.");
+        window.location.href = "/login.html";
+      </script>
+    `);
   }
 });
 
@@ -128,7 +139,7 @@ app.get('/logout', (req, res) => {
   });
 });
 
-// Registration endpoint (unchanged)
+// Registration endpoint
 app.post('/register', async (req, res) => {
   try {
     // Get form data
@@ -136,7 +147,12 @@ app.post('/register', async (req, res) => {
 
     // Validate input
     if (!firstName || !lastName || !email || !password) {
-      return res.status(400).json({ error: 'All fields are required' });
+      return res.status(400).send(`
+        <script>
+          sessionStorage.setItem("registerError", "All fields are required");
+          window.location.href = "/register.html";
+        </script>
+      `);
     }
 
     // Read existing users
@@ -151,7 +167,12 @@ app.post('/register', async (req, res) => {
     // Check if user already exists
     const userExists = users.some(user => user.email === email);
     if (userExists) {
-      return res.status(409).json({ error: 'User with this email already exists' });
+      return res.status(409).send(`
+        <script>
+          sessionStorage.setItem("registerError", "User with this email already exists");
+          window.location.href = "/register.html";
+        </script>
+      `);
     }
 
     // Hash password
@@ -182,11 +203,16 @@ app.post('/register', async (req, res) => {
       email: newUser.email
     };
     
-    // Redirect to a success page or respond with JSON based on your needs
-    res.redirect('/dashboard.html'); // If you have a dashboard page
+    // Redirect to dashboard
+    res.redirect('/dashboard.html');
   } catch (error) {
     console.error('Registration error:', error);
-    res.status(500).json({ error: 'Registration failed' });
+    res.status(500).send(`
+      <script>
+        alert("Registration failed. Please try again.");
+        window.location.href = "/register.html";
+      </script>
+    `);
   }
 });
 
