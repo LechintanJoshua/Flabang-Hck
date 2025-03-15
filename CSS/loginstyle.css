@@ -3,53 +3,183 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(194, 179, 249);
-    /* background: url('') no-repeat center center/cover; */
-    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #b39ddb, #c2b3f9, #a29bfe);
+    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
+    color: #333;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.2), transparent 80%);
+    z-index: 1;
 }
 
 .login-card {
-    background: #f2f6c3; 
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 
+                0 0 0 10px rgba(242, 246, 195, 0.3);
     width: 320px;
     text-align: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25),
+                0 0 0 10px rgba(242, 246, 195, 0.4);
+}
+
+.login-card h2 {
+    color: #5a4894;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.login-card h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(to right, #96ead7, #68c4af);
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     text-align: left;
+    position: relative;
 }
 
 .input-group label {
     display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #5a4894;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
 }
 
 .input-group input {
-    width: 93%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px; 
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
     font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+.input-group input:focus {
+    border-color: #96ead7;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(150, 234, 215, 0.2);
+}
+
+.input-group:hover label {
+    color: #68c4af;
 }
 
 button {
-    background:	#96ead7;
-    color: white;
+    background: linear-gradient(to right, #96ead7, #68c4af);
+    color: #fff;
     border: none;
-    padding: 10px;
+    padding: 15px;
     width: 100%;
     font-size: 16px;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(104, 196, 175, 0.4);
+    position: relative;
+    overflow: hidden;
 }
 
 button:hover {
-    background:	#68c4af;
+    background: linear-gradient(to right, #68c4af, #4db8a6);
+    box-shadow: 0 6px 20px rgba(104, 196, 175, 0.6);
+    transform: translateY(-2px);
 }
 
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(104, 196, 175, 0.4);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.6s ease;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+.login-options {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-options a {
+    color: #68c4af;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.login-options a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #68c4af;
+    transition: width 0.3s ease;
+}
+
+.login-options a:hover {
+    color: #4db8a6;
+}
+
+.login-options a:hover::after {
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-card {
+    animation: fadeIn 0.8s ease forwards;
+}
