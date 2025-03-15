@@ -6,15 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/stil.css">
     <link rel="stylesheet" href="/CSS/donation_card.css">
-    <link rel="stylesheet" href="/CSS/stil.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Home</title>
 </head>
 <header>
     <nav class="navbar">
-
-
         <div class="brand">
             <img src="../Imagini/navbar_logo.png" alt="Logo">
             <span>Flabang</span>
@@ -28,6 +24,14 @@
                 <a href="dashboard.html">Dashboard</a>
                 <a href="proiecte-active.html">Proiecte active</a>
             </div>
+        </div>
+        
+        <div class="user-menu" style="display: none;">
+            <div class="welcome-container">
+                <span id="welcome-message" class="welcome-text">Welcome!</span>
+                <div class="welcome-underline"></div>
+            </div>
+            <button class="logout-button" onclick="logout()">Logout</button>
         </div>
     </nav>
 </header>
@@ -57,6 +61,14 @@
         <i class="fas fa-map-marker-alt"></i>
     </button>
 
+    <!-- Create fund button - will be hidden by default and shown only for logged-in users -->
+    <button class="button" style="display: none;">Create a fund raise</button>
+
+    <footer>
+        <br><br>
+        <p style="font-size: 21px;">2025 ONGs United</p>
+    </footer>
+
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdownMenu");
@@ -79,15 +91,12 @@
         function openGoogleMaps() {
             window.open('https://maps.google.com', '_blank');
         }
-
+        
+        function logout() {
+            window.location.href = '/logout';
+        }
     </script>
-    
-    <button class="button">Create a fund raise</button>
-
-    <footer>
-        <br><br>
-        <p style="font-size: 21px;" >2025 ONGs United</p>
-    </footer>
+    <script src="../Javascript/auth.js"></script>
     <script src="../Javascript/create_fund.js"></script>
 </body>
 

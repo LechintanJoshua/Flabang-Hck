@@ -30,5 +30,13 @@
     "email": "an@an.an",
     "password": "$2b$10$OzMj/IfBfqnV.t1Zqv3yWOfjGBtTBYFL0B1PsRevNG0gcHX3acfFy",
     "createdAt": "2025-03-15T15:20:16.509Z"
+  },
+  {
+    "id": "1742072271079",
+    "firstName": "petre",
+    "lastName": "ema",
+    "email": "ema@gmail.com",
+    "password": "$2b$10$YJGkR6DcuvZ1LQngIuGERufRzCQeFAGLN.cAMldn1bmhdjcwcZxVK",
+    "createdAt": "2025-03-15T20:57:51.079Z"
   }
 ]
