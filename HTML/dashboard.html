@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/stil.css">
+    <link rel="stylesheet" href="/Css/stil.css">
     <title>Dashboard</title>
 </head>
-
 <body>
     <header>
         <nav class="navbar">
@@ -15,6 +13,7 @@
                 <img src="/imagini/navbar_logo.png" alt="Logo">
                 <span>Flabang</span>
             </div>
+<<<<<<< HEAD
 
             <div class="user-menu">
                 <div class="welcome-container">
@@ -31,6 +30,12 @@
                     <a href="register.html">Register</a>
                     <a href="dashboard.html">Dashboard</a>
                 </div>
+=======
+            
+            <div class="user-menu">
+                <span id="welcome-message">Welcome!</span>
+                <a href="/logout" class="logout-button">Logout</a>
+>>>>>>> 5b38a0156f93552e0ac30882bc4f7a2eadb4f20f
             </div>
         </nav>
     </header>
@@ -45,11 +50,12 @@
             .then(response => response.json())
             .then(data => {
                 if (data.isLoggedIn && data.user) {
-                    document.getElementById('welcome-message').textContent =
+                    document.getElementById('welcome-message').textContent = 
                         `Welcome, ${data.user.firstName}!`;
                 }
             })
             .catch(error => console.error('Error:', error));
+<<<<<<< HEAD
             function toggleDropdown() {
             var dropdown = document.getElementById("dropdownMenu");
             if (dropdown.style.display === "block") {
@@ -72,7 +78,8 @@
                 window.open('https://maps.google.com', '_blank');
         }
 
+=======
+>>>>>>> 5b38a0156f93552e0ac30882bc4f7a2eadb4f20f
     </script>
 </body>
-
 </html>

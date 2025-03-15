@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proiecte Active - ONG United</title>
+    <link rel = "stylesheet" href = "../CSS/pro-act-style.css">
+</head>
+<body>
+    <!-- Secțiunea de proiecte active -->
+    <section class="proiecte-container">
+        <h2 class="proiecte-titlu">Proiecte Active</h2>
+        
+        <div class="proiecte-grid" id="proiecte-grid">
+            <!-- Proiectele vor fi adăugate dinamic din JavaScript -->
+        </div>
+    </section>
+
+    <script>
+        // Array cu datele proiectelor active
+        const proiecteActive = [
+            {
+                id: 1,
+                titlu: "Educație pentru toți",
+                imagine: "https://placehold.co/600x400/0097b2/white?text=Educație",
+                descriere: "Oferim acces la educație de calitate copiilor din comunitățile vulnerabile, prin ateliere, mentorat și resurse educaționale.",
+                progres: 75, // procent
+                donatori: 128,
+                voluntari: 45,
+                etichete: ["Educație", "Copii", "Rural"],
+                linkImplicare: "#implicare-educatie"
+            },
+            {
+                id: 2,
+                titlu: "Plantăm pentru viitor",
+                imagine: "https://placehold.co/600x400/0097b2/white?text=Mediu",
+                descriere: "Campanie de împădurire în zone afectate de defrișări. Fiecare copac plantat ajută la restaurarea ecosistemului și combaterea schimbărilor climatice.",
+                progres: 60,
+                donatori: 312,
+                voluntari: 89,
+                etichete: ["Mediu", "Împădurire", "Climă"],
+                linkImplicare: "#implicare-mediu"
+            },
+            {
+                id: 3,
+                titlu: "Masă caldă pentru vârstnici",
+                imagine: "https://placehold.co/600x400/0097b2/white?text=Vârstnici",
+                descriere: "Asigurăm mese calde zilnice și companie pentru persoanele vârstnice singure sau în dificultate, aducând un strop de bucurie și sprijin.",
+                progres: 82,
+                donatori: 256,
+                voluntari: 63,
+                etichete: ["Social", "Vârstnici", "Sprijin"],
+                linkImplicare: "#implicare-social"
+            },
+            {
+                id: 4,
+                titlu: "Tehnologie pentru școli",
+                imagine: "https://placehold.co/600x400/0097b2/white?text=Tehnologie",
+                descriere: "Dotăm școlile din mediul rural cu echipamente IT și pregătim profesorii pentru a oferi educație digitală elevilor.",
+                progres: 45,
+                donatori: 94,
+                voluntari: 27,
+                etichete: ["Educație", "Tehnologie", "Digital"],
+                linkImplicare: "#implicare-tehnologie"
+            }
+        ];
+
+        // Funcția pentru a crea și adăuga cardurile de proiecte în pagină
+        function afișeazăProiecte() {
+            const containerProiecte = document.getElementById('proiecte-grid');
+            
+            proiecteActive.forEach(proiect => {
+                // Creăm elementul pentru cardul proiectului
+                const cardProiect = document.createElement('div');
+                cardProiect.className = 'proiect-card';
+                
+                // Construim conținutul HTML pentru card
+                let eticheteHTML = '';
+                proiect.etichete.forEach(etichetă => {
+                    eticheteHTML += `<span class="proiect-etichetă">${etichetă}</span>`;
+                });
+                
+                cardProiect.innerHTML = `
+                    <img src="${proiect.imagine}" alt="${proiect.titlu}" class="proiect-imagine">
+                    <div class="proiect-continut">
+                        <h3 class="proiect-titlu">${proiect.titlu}</h3>
+                        <div>
+                            ${eticheteHTML}
+                        </div>
+                        <p class="proiect-descriere">${proiect.descriere}</p>
+                        
+                        <div class="proiect-progres-container">
+                            <div class="proiect-progres-bar" style="width: ${proiect.progres}%"></div>
+                        </div>
+                        
+                        <div class="proiect-statistici">
+                            <span>${proiect.progres}% realizat</span>
+                            <span>${proiect.donatori} donatori</span>
+                            <span>${proiect.voluntari} voluntari</span>
+                        </div>
+                        
+                        <a href="${proiect.linkImplicare}" class="proiect-buton">Implică-te</a>
+                    </div>
+                `;
+                
+                // Adăugăm cardul în container
+                containerProiecte.appendChild(cardProiect);
+            });
+        }
+
+        // Rulăm funcția când se încarcă pagina
+        document.addEventListener('DOMContentLoaded', afișeazăProiecte);
+    </script>
+</body>
+</html>
