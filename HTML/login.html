@@ -6,30 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/loginstyle.css">
     <title>Login</title>
-    <style>
-        .error-message {
-            color: red;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            text-align: center;
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
     <div class="login-card">
         <h2>Login</h2>
-        <div id="error-message" class="error-message"></div>
         <form action="/login" method="POST">
             <div class="input-group">
                 <label>Email</label>
-                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                <input type="email" name="email" placeholder="Enter your email" required>
             </div>
 
             <div class="input-group">
                 <label>Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                <input type="password" name="password" placeholder="Enter your password" required>
             </div>
 
             <div class="input-group"> 
@@ -37,26 +27,6 @@
             </div>
         </form>
     </div>
-
-    <script>
-        // Check for login errors on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const errorMessage = sessionStorage.getItem('loginError');
-            if (errorMessage) {
-                // Display error message
-                const errorElement = document.getElementById('error-message');
-                errorElement.textContent = errorMessage;
-                errorElement.style.display = 'block';
-                
-                // Clear the form fields
-                document.getElementById('email').value = '';
-                document.getElementById('password').value = '';
-                
-                // Remove the error from session storage
-                sessionStorage.removeItem('loginError');
-            }
-        });
-    </script>
 </body>
 
 </html>
