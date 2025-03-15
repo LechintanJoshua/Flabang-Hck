@@ -104,24 +104,3 @@
     font-size: 0.8rem;
     font-weight: bold;
 }
-
-.buton-implicare {
-    background-color: #0097b2; /* Culoarea de fundal */
-    color: white; /* Culoarea textului */
-    padding: 12px 24px; /* Spațiere internă */
-    border: none; /* Elimină bordura */
-    border-radius: 5px; /* Colțuri rotunjite */
-    font-size: 16px; /* Dimensiunea textului */
-    font-weight: bold; /* Text îngroșat */
-    cursor: pointer; /* Cursor pointer la hover */
-    transition: background-color 0.3s ease; /* Tranziție pentru hover */
-    margin-bottom: 20px; /* Spațiu sub buton */
-}
-
-.buton-implicare:hover {
-    background-color: #007a8f; /* Culoare de fundal la hover */
-}
-
-.buton-implicare:active {
-    background-color: #005f70; /* Culoare de fundal la click */
-}

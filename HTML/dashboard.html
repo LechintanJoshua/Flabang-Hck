@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/dashboard.css">
-    <title>VolunteerHub Dashboard</title>
+    <link rel="stylesheet" href="/css/stil.css">
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -15,200 +13,33 @@
         <nav class="navbar">
             <div class="brand">
                 <img src="/imagini/navbar_logo.png" alt="Logo">
-                <span>VolunteerHub</span>
+                <span>Flabang</span>
             </div>
 
-            <div class="nav-links">
-                <a href="dashboard.html" class="active">Dashboard</a>
-                <a href="#">Events</a>
-                <a href="#">Impact</a>
-                <a href="#">Community</a>
+            <div class="dropdown">
+                <button onclick="toggleDropdown()">Meniu &#9662;</button>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="index.html">Home</a>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Register</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
             </div>
 
             <div class="user-menu">
                 <div class="welcome-container">
                     <span id="welcome-message" class="welcome-text">Welcome!</span>
+                    <div class="welcome-underline"></div>
                 </div>
-                <div class="dropdown">
-                    <button class="profile-button">
-                        <i class="fas fa-user-circle"></i>
-                    </button>
-                    <div class="dropdown-content" id="dropdownMenu">
-                        <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
-                        <a href="certificates.html"><i class="fas fa-certificate"></i> Certificates</a>
-                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
-                        <a href="login.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                    </div>
-                </div>
+                <button class="logout-button">Logout</button>
             </div>
         </nav>
     </header>
 
-    <div class="dashboard-container">
-        <div class="sidebar">
-            <div class="sidebar-item active">
-                <i class="fas fa-home"></i>
-                <span>Home</span>
-            </div>
-            <div class="sidebar-item">
-                <i class="fas fa-calendar-alt"></i>
-                <span>Upcoming Events</span>
-            </div>
-            <div class="sidebar-item">
-                <i class="fas fa-history"></i>
-                <span>My History</span>
-            </div>
-            <div class="sidebar-item">
-                <i class="fas fa-users"></i>
-                <span>Teams</span>
-            </div>
-            <div class="sidebar-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Find Opportunities</span>
-            </div>
-            <div class="sidebar-item">
-                <i class="fas fa-star"></i>
-                <span>Recognition</span>
-            </div>
-        </div>
-
-        <main class="content">
-            <div class="welcome-banner">
-                <h1>Welcome to Your Volunteer Dashboard</h1>
-                <p>Making a difference, one volunteer hour at a time</p>
-            </div>
-
-            <div class="stats-cards">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>Hours Volunteered</h3>
-                        <p class="stat-number">48</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>Events Attended</h3>
-                        <p class="stat-number">12</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>Certificates</h3>
-                        <p class="stat-number">5</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>Impact Score</h3>
-                        <p class="stat-number">385</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="upcoming-events">
-                <h2>Upcoming Volunteer Opportunities</h2>
-                <div class="events-container">
-                    <div class="event-card">
-                        <div class="event-date">
-                            <span class="month">MAR</span>
-                            <span class="day">18</span>
-                        </div>
-                        <div class="event-details">
-                            <h3>Community Garden Clean-up</h3>
-                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Riverside Park</p>
-                            <p class="event-time"><i class="fas fa-clock"></i> 9:00 AM - 12:00 PM</p>
-                        </div>
-                        <div class="event-actions">
-                            <button class="register-btn">Register</button>
-                        </div>
-                    </div>
-                    
-                    <div class="event-card">
-                        <div class="event-date">
-                            <span class="month">MAR</span>
-                            <span class="day">24</span>
-                        </div>
-                        <div class="event-details">
-                            <h3>Food Bank Distribution</h3>
-                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Community Center</p>
-                            <p class="event-time"><i class="fas fa-clock"></i> 2:00 PM - 5:00 PM</p>
-                        </div>
-                        <div class="event-actions">
-                            <button class="register-btn">Register</button>
-                        </div>
-                    </div>
-                    
-                    <div class="event-card">
-                        <div class="event-date">
-                            <span class="month">APR</span>
-                            <span class="day">02</span>
-                        </div>
-                        <div class="event-details">
-                            <h3>Reading to Seniors</h3>
-                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Sunshine Care Home</p>
-                            <p class="event-time"><i class="fas fa-clock"></i> 10:00 AM - 12:00 PM</p>
-                        </div>
-                        <div class="event-actions">
-                            <button class="register-btn">Register</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="recent-activity">
-                <h2>Recent Activity</h2>
-                <div class="activity-list">
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="activity-details">
-                            <p class="activity-text">Completed <strong>Beach Clean-up</strong> event</p>
-                            <p class="activity-time">March 10, 2025 • 4 hours</p>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <div class="activity-details">
-                            <p class="activity-text">Earned <strong>Environmental Champion</strong> badge</p>
-                            <p class="activity-time">March 12, 2025</p>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon">
-                            <i class="fas fa-comment"></i>
-                        </div>
-                        <div class="activity-details">
-                            <p class="activity-text">Received feedback from <strong>Animal Shelter Day</strong></p>
-                            <p class="activity-time">March 5, 2025</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <div class="container">
+        <h1>Welcome to Your Dashboard</h1>
+        <p>You are successfully logged in!</p>
     </div>
-
-    <button class="map-button" onclick="openGoogleMaps()">
-        <i class="fas fa-map-marker-alt"></i>
-    </button>
-
-    <footer>
-        <p>&copy; 2025 VolunteerHub. Making the world better together.</p>
-    </footer>
 
     <script>
         // Get user info from the server
@@ -222,17 +53,20 @@
             })
             .catch(error => console.error('Error:', error));
 
-        // Toggle dropdown for profile menu
-        document.querySelector('.profile-button').addEventListener('click', function() {
-            document.getElementById('dropdownMenu').classList.toggle('show');
-        });
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
 
-        // Close dropdown when clicking outside
-        window.onclick = function(event) {
-            if (!event.target.matches('.profile-button')) {
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropdown button')) {
                 var dropdown = document.getElementById("dropdownMenu");
-                if (dropdown.classList.contains('show')) {
-                    dropdown.classList.remove('show');
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
                 }
             }
         }
@@ -240,6 +74,7 @@
         function openGoogleMaps() {
             window.open('https://maps.google.com', '_blank');
         }
+
     </script>
 </body>
 
