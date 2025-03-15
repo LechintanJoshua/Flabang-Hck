@@ -110,13 +110,6 @@ body {
     border-radius: 20px;
     height: 50vh;
     margin-right: 10%;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-    margin-left: 3%;
-}
-
-#main_img:hover {
-    transform: scale(1.05);
 }
 
 h1 {
@@ -159,26 +152,4 @@ a {
 a:hover {
     text-decoration: underline;
     color: #0298c8;
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        text-align: center;
-        padding: 15px;
-    }
-
-    .brand {
-        margin-bottom: 10px;
-    }
-
-    .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    #main_img {
-        margin: 0 auto;
-        margin-bottom: 20px;
-    }
 }
