@@ -3,7 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #b39ddb, #c2b3f9, #a29bfe);
+    background: #D7E8FA;
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     color: #333;
@@ -100,7 +100,7 @@ body::before {
 }
 
 button {
-    background: linear-gradient(to right, #96ead7, #68c4af);
+    background: linear-gradient(to right, #5AB9EA, #037FFF);
     color: #fff;
     border: none;
     padding: 15px;
