@@ -4,8 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link rel="stylesheet" href="/CSS/stil.css">
     <link rel="stylesheet" href="/CSS/donation_card.css">
+=======
+    <link rel="stylesheet" href="../CSS/stil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+>>>>>>> 1448b340dfb778a5837e940344bfda85bce4bca2
     <title>Home</title>
 </head>
 <header>
@@ -16,7 +21,7 @@
             <img src="../Imagini/navbar_logo.png" alt="Logo">
             <span>Flabang</span>
         </div>
-        
+
         <div class="dropdown">
             <button onclick="toggleDropdown()">Meniu &#9662;</button>
             <div class="dropdown-content" id="dropdownMenu">
@@ -46,6 +51,15 @@
         <img src="../Imagini/volunteer210324.jpg" id="main_img">
 
     </div>
+
+    <div class="fund-raise">
+        <button id="fund-raise">Create a fond raise</button>
+    </div>
+
+    <button class="map-button" onclick="openGoogleMaps()">
+        <i class="fas fa-map-marker-alt"></i>
+    </button>
+
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdownMenu");
@@ -64,8 +78,12 @@
                 }
             }
         }
+
+        function openGoogleMaps() {
+                window.open('https://maps.google.com', '_blank');
+                }
     </script>
-    <button>Create a fund raise</button>
+    
     
 
    
