@@ -1,7 +1,7 @@
 .card {
-    width: 30vw;
+    width: 60vw;
     border-radius: 20px;
-    height:8vh;
+    height:80vh;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background-color: rgb(167, 193, 250);
     overflow: hidden;
@@ -9,20 +9,27 @@
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
     font-size: 1rem;
+    margin: 0 auto;
     
 }
-.container{
+.button{
+    display: block;
     text-align: center;
+    margin: 0 auto;
 }
-
+.card_container{
+    text-align: center;
+    border: 2px solid red;
+}
 .card img {
     width: 100%;
-    height: auto;
+    height: 70vh;
     display: block;
     /*margin: 0 auto;
     display: block;
     padding-top:10px;
     padding-top:10px;*/
+    padding: 10% ;
 }
 
 .loading-bar {
@@ -45,4 +52,7 @@
     color: rgb(0, 0, 0);
     font-size: 14px;
     font-family: monospace;
+}
+.form-container{
+    display: flex;
 }
