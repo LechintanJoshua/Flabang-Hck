@@ -1,7 +1,7 @@
 .card {
-    width: 60vw;
+    width: 30vw;
     border-radius: 20px;
-    height:80vh;
+    height:50vh;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background-color: rgb(167, 193, 250);
     overflow: hidden;
@@ -13,9 +13,12 @@
     
 }
 .button{
+    width: 30vw;
     display: block;
     text-align: center;
     margin: 0 auto;
+    border-radius: 100px;
+    
 }
 .card_container{
     text-align: center;
