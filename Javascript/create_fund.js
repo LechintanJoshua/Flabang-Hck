@@ -62,7 +62,7 @@ function createFundraisingCard(title,email, cardInfo, amount, description) {
 
     // Create the image element
     const img = document.createElement('img');
-    img.src = '/Imagini/Fund_Raising1.jpg'; // Replace with your image path
+    img.src = '/Imagini/donation.png'; // Replace with your image path
     img.alt = 'Raise funding';
 
     // Create the loading bar container
