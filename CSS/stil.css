@@ -215,9 +215,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 2%;
     margin-top: 80px;
     padding: 20px;
+    margin-right: 5%;
+    gap: 5%;
 }
 
 .dashboard-content {
@@ -260,6 +261,7 @@ body {
     #main_img {
         margin: 0 auto;
         margin-bottom: 20px;
+        border-radius: 10px;
     }
     
     .dashboard-banner h1 {
