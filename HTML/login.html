@@ -14,10 +14,30 @@
             text-align: center;
             display: none;
         }
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+        .brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .user-menu {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
+    
     <div class="login-card">
         <h2>Login</h2>
         <div id="error-message" class="error-message"></div>
@@ -34,6 +54,10 @@
 
             <div class="input-group"> 
                 <button type="submit" class="login-btn">Login</button>
+            </div>
+            
+            <div class="input-group">
+                <a href="register.html">Don't have an account? Register here</a>
             </div>
         </form>
     </div>
@@ -56,7 +80,12 @@
                 sessionStorage.removeItem('loginError');
             }
         });
+        
+        function logout() {
+            window.location.href = '/logout';
+        }
     </script>
+    <script src="/Javascript/auth.js"></script>
 </body>
 
 </html>

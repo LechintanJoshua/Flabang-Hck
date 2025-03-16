@@ -14,10 +14,30 @@
             text-align: center;
             display: none;
         }
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+        .brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .user-menu {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
+    
     <div class="register-card">
         <h2>Register</h2>
         <div id="error-message" class="error-message"></div>
@@ -72,7 +92,12 @@
                 sessionStorage.removeItem('registerError');
             }
         });
+        
+        function logout() {
+            window.location.href = '/logout';
+        }
     </script>
+    <script src="/javascript/auth.js"></script>
 </body>
 
 </html>
