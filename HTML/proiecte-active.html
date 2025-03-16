@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proiecte Active - ONG United</title>
-    <link rel = "stylesheet" href = "../CSS/pro-act-style.css">
+    <link rel="stylesheet" href="../CSS/pro-act-style.css">
 </head>
+<header>
+    <button class="button">Create a project</button>
+    <div class="dropdown">
+        <button onclick="toggleDropdown()">Meniu &#9662;</button>
+        <div class="dropdown-content" id="dropdownMenu">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="proiecte-active.html">Proiecte active</a>
+        </div>
+    </div>
+</header>
+
 <body>
     <!-- Secțiunea de proiecte active -->
     <section class="section-background">
-    <div class="proiecte-container">
-        <h2 class="proiecte-titlu">Proiecte Active</h2>
-        
-        <div class="proiecte-grid" id="proiecte-grid">
-            <!-- Proiectele vor fi adăugate dinamic din JavaScript -->
+        <div class="proiecte-container">
+            <h2 class="proiecte-titlu">Proiecte Active</h2>
+
+            <div class="proiecte-grid" id="proiecte-grid">
+                <!-- Proiectele vor fi adăugate dinamic din JavaScript -->
+            </div>
+
+            <!-- Formularul pentru adăugare proiect -->
+            <div id="formular-proiect" class="formular-popup">
+                <!-- codul formularului -->
+            </div>
         </div>
-        
-        <!-- Formularul pentru adăugare proiect -->
-        <div id="formular-proiect" class="formular-popup">
-            <!-- codul formularului -->
-        </div>
-    </div>
-</section>
+    </section>
 
     <script>
         // Array cu datele proiectelor active
@@ -76,18 +91,18 @@
         // Funcția pentru a crea și adăuga cardurile de proiecte în pagină
         function afișeazăProiecte() {
             const containerProiecte = document.getElementById('proiecte-grid');
-            
+
             proiecteActive.forEach(proiect => {
                 // Creăm elementul pentru cardul proiectului
                 const cardProiect = document.createElement('div');
                 cardProiect.className = 'proiect-card';
-                
+
                 // Construim conținutul HTML pentru card
                 let eticheteHTML = '';
                 proiect.etichete.forEach(etichetă => {
                     eticheteHTML += `<span class="proiect-etichetă">${etichetă}</span>`;
                 });
-                
+
                 cardProiect.innerHTML = `
                     <img src="${proiect.imagine}" alt="${proiect.titlu}" class="proiect-imagine">
                     <div class="proiect-continut">
@@ -110,7 +125,7 @@
                         <a href="${proiect.linkImplicare}" class="proiect-buton">Implică-te</a>
                     </div>
                 `;
-                
+
                 // Adăugăm cardul în container
                 containerProiecte.appendChild(cardProiect);
             });
@@ -118,10 +133,31 @@
 
         // Rulăm funcția când se încarcă pagina
         document.addEventListener('DOMContentLoaded', afișeazăProiecte);
-    </script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
 
-    <script>
-        
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropdown button')) {
+                var dropdown = document.getElementById("dropdownMenu");
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                }
+            }
+        }
+
+        function openGoogleMaps() {
+            window.open('https://maps.google.com', '_blank');
+        }
+        function logout() {
+            window.location.href = '/logout';
+        }
     </script>
 </body>
+
 </html>
