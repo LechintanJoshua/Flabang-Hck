@@ -45,17 +45,50 @@ function showForm() {
         const amount = form.querySelector("#amount").value;
         const description = form.querySelector("#description").value;
     
-        // Create the fundraising card with the form data
-        createFundraisingCard(title, email, cardInfo, amount, description);
+        // Save the fundraising card to the server
+        saveFundraisingCard(title, email, cardInfo, amount, description);
     
         // Remove the form container
         document.body.removeChild(formContainer);
     });
-    
-    
 }
 
-function createFundraisingCard(title,email, cardInfo, amount, description) {
+// New function to save fundraising card to server
+async function saveFundraisingCard(title, email, cardInfo, amount, description) {
+    try {
+        // Save to server
+        const response = await fetch('/api/funds', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title,
+                email,
+                cardInfo,
+                amount,
+                description,
+                createdAt: new Date().toISOString()
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to save fund');
+        }
+
+        const result = await response.json();
+        
+        // Create card in UI after successful save
+        createFundraisingCard(title, email, cardInfo, amount, description);
+        
+        alert('Fund created successfully!');
+    } catch (error) {
+        console.error('Error saving fund:', error);
+        alert('Failed to create fund. Please try again.');
+    }
+}
+
+function createFundraisingCard(title, email, cardInfo, amount, description) {
     // Create the card div
     const card = document.createElement('div');
     card.className = 'card';
@@ -76,7 +109,7 @@ function createFundraisingCard(title,email, cardInfo, amount, description) {
     // Create the progress text
     const progressText = document.createElement('div');
     progressText.className = 'progress-text';
-    progressText.innerHTML = `<b>65%</b>`;
+    progressText.innerHTML = `<b>0%</b>`;
 
     // Create a div to display the form data
     const infoDiv = document.createElement('div');
