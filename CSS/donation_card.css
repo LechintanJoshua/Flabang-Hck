@@ -1,37 +1,55 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
+body {
+    background-color: #f7f9fc;
+    color: #333;
+}
+
+/* Centered Button */
 .button {
-    width: 30vw;
+    width: 250px;
     display: block;
     text-align: center;
-    margin: 0 auto;
-    border-radius: 100px;
-    background-color: #4CAF50;
+    margin: 30px auto;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #4CAF50, #2e8b57);
     color: white;
     padding: 12px 20px;
     border: none;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
 }
 
 .button:hover {
-    background-color: #45a049;
+    background: linear-gradient(45deg, #45a049, #1e6f43);
+    transform: scale(1.05);
 }
 
+/* Form Styling */
 .form-container {
-    display: block;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.98);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
-    width: 25vw;
+    width: 30vw;
+    max-width: 400px;
 }
 
 form {
@@ -39,97 +57,117 @@ form {
 }
 
 h3 {
-    margin-top: 0;
-    color: #333;
+    color: #2e8b57;
     text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
     font-weight: bold;
+    color: #333;
 }
 
 input, textarea {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 16px;
+    background: #f9f9f9;
+    transition: border 0.3s ease-in-out;
+}
+
+input:focus, textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
 }
 
 textarea {
-    height: 80px;
+    height: 100px;
     resize: vertical;
 }
 
+/* Submit Button */
 button[type="submit"] {
-    background-color: #4CAF50;
+    background: linear-gradient(45deg, #4CAF50, #2e8b57);
     color: white;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     width: 100%;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
     margin-top: 15px;
+    transition: all 0.3s ease-in-out;
 }
 
+button[type="submit"]:hover {
+    background: linear-gradient(45deg, #45a049, #1e6f43);
+    transform: scale(1.05);
+}
+
+/* Fundraising Card */
 .card {
-    width: 30vw;
-    height: 100%;
-    border-radius: 20px;
-    height: 50vh;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background-color: rgb(167, 193, 250);
-    overflow: hidden;
-    transition: background 0.3s ease-in-out, transform 0.2s ease;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    font-size: 1rem;
-    margin: 0 auto;
+    padding: 20px;
+    margin: 20px auto;
+    transition: transform 0.2s ease-in-out;
 }
 
-.card_container {
-    text-align: center;
-    border: 2px solid red;
+.card:hover {
+    transform: translateY(-5px);
 }
 
 .card img {
     width: 100%;
-    height: 70%;
-    display: block;
-    padding: 10%;
-    border-radius: 20%;
+    border-radius: 8px;
 }
 
 .loading-bar {
-    background-color: #ccc9c9;
-    height: 20px;
+    background-color: #e0e0e0;
+    height: 10px;
     width: 100%;
+    border-radius: 5px;
     position: relative;
+    margin: 15px 0;
 }
 
 .progress {
-    background-color: rgb(10, 161, 10);
+    background: linear-gradient(90deg, #4CAF50, #2e8b57);
     width: 65%;
     height: 100%;
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
 }
 
-.loading-bar .progress-text {
+.progress-text {
     position: absolute;
     width: 100%;
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: #333;
     font-size: 14px;
-    font-family: monospace;
+    font-weight: bold;
+    top: -20px;
 }
 
+/* Fundraising Info */
 .info {
-    height: 100%;
+    text-align: left;
+    font-size: 16px;
+    margin-top: 15px;
 }
 
 .info p {
-    margin: 10px 0;
+    margin: 8px 0;
+    font-size: 15px;
+    color: #555;
 }
