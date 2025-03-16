@@ -9,6 +9,7 @@ const app = express();
 const PORT = 3000;
 const SALT_ROUNDS = 10;
 const USERS_FILE = path.join(__dirname, 'users.json');
+const FUNDS_FILE = path.join(__dirname, 'funds.json');
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,6 +35,11 @@ app.use(express.static(path.join(__dirname, 'HTML')));
 // Initialize users.json if it doesn't exist
 if (!fs.existsSync(USERS_FILE)) {
   fs.writeFileSync(USERS_FILE, JSON.stringify([], null, 2));
+}
+
+// Initialize funds.json if it doesn't exist
+if (!fs.existsSync(FUNDS_FILE)) {
+  fs.writeFileSync(FUNDS_FILE, JSON.stringify([], null, 2));
 }
 
 // Make isLoggedIn available to all templates
@@ -233,6 +239,63 @@ app.get('/dashboard.html', requireLogin, (req, res) => {
 
 app.get('/api/profile', requireLogin, (req, res) => {
   res.json({ user: req.session.user });
+});
+
+// API endpoint to create a new fund
+app.post('/api/funds', requireLogin, (req, res) => {
+  try {
+    // Get fund data from request
+    const fundData = req.body;
+    
+    // Add user ID to the fund data
+    fundData.userId = req.session.user.id;
+    fundData.id = Date.now().toString(); // Generate a unique ID for the fund
+    
+    // Read existing funds
+    let funds = [];
+    try {
+      const data = fs.readFileSync(FUNDS_FILE);
+      funds = JSON.parse(data);
+    } catch (err) {
+      console.error('Error reading funds file:', err);
+    }
+    
+    // Add new fund to array
+    funds.push(fundData);
+    
+    // Save updated funds array to file
+    fs.writeFileSync(FUNDS_FILE, JSON.stringify(funds, null, 2));
+    
+    // Return success response
+    res.status(201).json({ success: true, fundId: fundData.id });
+  } catch (error) {
+    console.error('Fund creation error:', error);
+    res.status(500).json({ error: 'Failed to create fund' });
+  }
+});
+
+// API endpoint to get user's funds
+app.get('/api/funds', requireLogin, (req, res) => {
+  try {
+    // Read funds from file
+    let funds = [];
+    try {
+      const data = fs.readFileSync(FUNDS_FILE);
+      funds = JSON.parse(data);
+    } catch (err) {
+      console.error('Error reading funds file:', err);
+      return res.status(500).json({ error: 'Server error' });
+    }
+    
+    // Filter funds by user ID
+    const userFunds = funds.filter(fund => fund.userId === req.session.user.id);
+    
+    // Return funds
+    res.json({ funds: userFunds });
+  } catch (error) {
+    console.error('Error getting funds:', error);
+    res.status(500).json({ error: 'Failed to get funds' });
+  }
 });
 
 // Add a route to serve your main HTML file
