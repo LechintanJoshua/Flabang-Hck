@@ -10,8 +10,9 @@ function showForm() {
     const form = document.createElement('form');
     form.className='form-container'
     form.innerHTML = `
-        <label for="title"></label>
+        <label for="title">Title:</label>
         <input id="title" required>
+
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         
@@ -36,20 +37,22 @@ function showForm() {
     // Add a submit event listener to the form
     form.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the form from submitting
-
-        // Get the form data
-        const title=document.getElementById("title").value;
-        const email = document.getElementById('email').value;
-        const cardInfo = document.getElementById('card-info').value;
-        const amount = document.getElementById('amount').value;
-        const description = document.getElementById('description').value;
-
+    
+        // Get the form data from 'form' instead of document
+        const title = form.querySelector("#title").value;
+        const email = form.querySelector("#email").value;
+        const cardInfo = form.querySelector("#card-info").value;
+        const amount = form.querySelector("#amount").value;
+        const description = form.querySelector("#description").value;
+    
         // Create the fundraising card with the form data
-        createFundraisingCard(title,email, cardInfo, amount, description);
-
+        createFundraisingCard(title, email, cardInfo, amount, description);
+    
         // Remove the form container
         document.body.removeChild(formContainer);
     });
+    
+    
 }
 
 function createFundraisingCard(title,email, cardInfo, amount, description) {
