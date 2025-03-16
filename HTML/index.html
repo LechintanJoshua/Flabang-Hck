@@ -6,15 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/stil.css">
     <link rel="stylesheet" href="/CSS/donation_card.css">
-    <link rel="stylesheet" href="/CSS/stil.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Home</title>
 </head>
 <header>
     <nav class="navbar">
-
-
         <div class="brand">
             <img src="../Imagini/navbar_logo.png" alt="Logo">
             <span>Flabang</span>
@@ -52,10 +48,20 @@
 
     </div>
 
+    <!-- Active Fundraising Campaigns Section -->
+    <div class="fundraising-section">
+        <h2 style="text-align: center; margin: 40px 0 20px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Active Fundraising Campaigns</h2>
+        <div id="funds-container" class="funds-container">
+            <!-- Funds will be loaded here dynamically -->
+            <div class="loading-message">Loading campaigns...</div>
+        </div>
+    </div>
 
     <button class="map-button" onclick="openGoogleMaps()">
         <i class="fas fa-map-marker-alt"></i>
     </button>
+
+    <button class="button">Create a fund raise</button>
 
     <script>
         function toggleDropdown() {
@@ -82,14 +88,13 @@
         function logout() {
             window.location.href = '/logout';
         }
-
     </script>
-    <button class="button">Create a fund raise</button>
-    <script src="/Javascript/create_fund.js"></script>
     <script src="/Javascript/auth.js"></script>
+    <script src="/Javascript/create_fund.js"></script>
+    <script src="/Javascript/display-funds.js"></script>
     <footer>
         <br><br>
-        <p style="font-size: 21px; justify-content: center; text-align: center;" >2025 ONGs United</p>
+        <p style="font-size: 21px; justify-content: center; text-align: center;">2025 ONGs United</p>
     </footer>
 </body>
 

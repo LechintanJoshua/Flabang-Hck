@@ -88,14 +88,14 @@ async function saveFundraisingCard(title, email, cardInfo, amount, description) 
     }
 }
 
-function createFundraisingCard(title, email, cardInfo, amount, description) {
+function createFundraisingCard(fund) {
     // Create the card div
     const card = document.createElement('div');
     card.className = 'card';
 
     // Create the image element
     const img = document.createElement('img');
-    img.src = '/Imagini/donation.png'; // Replace with your image path
+    img.src = '/Imagini/Fund_Raising1.jpg';
     img.alt = 'Raise funding';
 
     // Create the loading bar container
@@ -105,21 +105,23 @@ function createFundraisingCard(title, email, cardInfo, amount, description) {
     // Create the progress bar
     const progress = document.createElement('div');
     progress.className = 'progress';
+    progress.style.width = '0%'; // Start at 0%
 
     // Create the progress text
     const progressText = document.createElement('div');
     progressText.className = 'progress-text';
     progressText.innerHTML = `<b>0%</b>`;
 
-    // Create a div to display the form data
+    // Create a div to display the fund data
     const infoDiv = document.createElement('div');
     infoDiv.className = 'info';
     infoDiv.innerHTML = `
-        <p><strong>Title:</strong> ${title}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Card Info:</strong> ${cardInfo}</p>
-        <p><strong>Amount:</strong> ${amount}</p>
-        <p><strong>Description:</strong> ${description}</p>
+        <h3>${fund.title}</h3>
+        <p><strong>Email:</strong> ${fund.email}</p>
+        <p><strong>Card Info:</strong> ${fund.cardInfo}</p>
+        <p><strong>Amount Goal:</strong> $${fund.amount}</p>
+        <p><strong>Description:</strong> ${fund.description}</p>
+        <p><strong>Created:</strong> ${new Date(fund.createdAt).toLocaleDateString()}</p>
     `;
 
     // Append elements to their respective parents
@@ -129,6 +131,5 @@ function createFundraisingCard(title, email, cardInfo, amount, description) {
     card.appendChild(loadingBar);
     card.appendChild(infoDiv);
 
-    // Append the card to the body
-    document.body.appendChild(card);
+    return card;
 }

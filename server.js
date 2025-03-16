@@ -232,6 +232,27 @@ const requireLogin = (req, res, next) => {
   }
 };
 
+app.get('/api/all-funds', (req, res) => {
+  try {
+    // Read funds from file
+    let funds = [];
+    try {
+      const data = fs.readFileSync(FUNDS_FILE);
+      funds = JSON.parse(data);
+    } catch (err) {
+      console.error('Error reading funds file:', err);
+      return res.status(500).json({ error: 'Server error' });
+    }
+    
+    // Return all funds
+    res.json({ funds: funds });
+  } catch (error) {
+    console.error('Error getting funds:', error);
+    res.status(500).json({ error: 'Failed to get funds' });
+  }
+});
+
+
 // Protected routes
 app.get('/dashboard.html', requireLogin, (req, res) => {
   res.sendFile(path.join(__dirname, 'HTML', 'dashboard.html'));

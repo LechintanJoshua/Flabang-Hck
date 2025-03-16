@@ -312,3 +312,65 @@ body {
     background-color: #3367D6;
     transform: translateY(-2px);
 }
+
+.fundraising-section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.funds-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.loading-message {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+.no-funds-message, .error-message {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.error-message {
+    border-left: 4px solid #ff4757;
+}
+
+.no-funds-message h3, .error-message h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.no-funds-message p, .error-message p {
+    color: #666;
+}
+
+/* Style for the donate button */
+.donate-button {
+    background: linear-gradient(45deg, #4285F4, #34A853);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.donate-button:hover {
+    background: linear-gradient(45deg, #3367D6, #2E8B57);
+    transform: translateY(-2px);
+}
