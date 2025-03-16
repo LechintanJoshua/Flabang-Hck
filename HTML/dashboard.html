@@ -19,10 +19,10 @@
             <div class="dropdown">
                 <button onclick="toggleDropdown()">Meniu &#9662;</button>
                 <div class="dropdown-content" id="dropdownMenu">
-                    <a href="index.html">Home</a>
                     <a href="login.html">Login</a>
                     <a href="register.html">Register</a>
                     <a href="dashboard.html">Dashboard</a>
+                    <a href="proiecte-active.html">Proiecte active</a>
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                     <span id="welcome-message" class="welcome-text">Welcome!</span>
                     <div class="welcome-underline"></div>
                 </div>
-                <button class="logout-button">Logout</button>
+                <button class="logout-button" onclick="logout()">Logout</button>
             </div>
         </nav>
     </header>
@@ -42,17 +42,6 @@
     </div>
 
     <script>
-        // Get user info from the server
-        fetch('/api/auth/status')
-            .then(response => response.json())
-            .then(data => {
-                if (data.isLoggedIn && data.user) {
-                    document.getElementById('welcome-message').textContent =
-                        `Welcome, ${data.user.firstName}!`;
-                }
-            })
-            .catch(error => console.error('Error:', error));
-
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdownMenu");
             if (dropdown.style.display === "block") {
@@ -74,8 +63,12 @@
         function openGoogleMaps() {
             window.open('https://maps.google.com', '_blank');
         }
-
+        
+        function logout() {
+            window.location.href = '/logout';
+        }
     </script>
+    <script src="/javascript/auth.js"></script>
 </body>
 
 </html>

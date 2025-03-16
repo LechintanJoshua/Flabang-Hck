@@ -28,8 +28,8 @@ app.use(session({
 // Serve static files from the different folders
 app.use('/css', express.static(path.join(__dirname, 'CSS')));
 app.use('/imagini', express.static(path.join(__dirname, 'Imagini')));
+app.use('/javascript', express.static(path.join(__dirname, 'Javascript'))); // Serve JavaScript files
 app.use(express.static(path.join(__dirname, 'HTML')));
-app.use('/javascript', express.static(path.join(__dirname,'Javascript')));// Serve HTML files from root URL
 
 // Initialize users.json if it doesn't exist
 if (!fs.existsSync(USERS_FILE)) {
@@ -65,7 +65,7 @@ app.post('/login', async (req, res) => {
     if (!email || !password) {
       return res.status(400).send(`
         <script>
-          alert("Email and password are required");
+          sessionStorage.setItem("loginError", "Email and password are required");
           window.location.href = "/login.html";
         </script>
       `);
@@ -80,7 +80,7 @@ app.post('/login', async (req, res) => {
       console.error('Error reading users file:', err);
       return res.status(500).send(`
         <script>
-          alert("Server error. Please try again later.");
+          sessionStorage.setItem("loginError", "Server error. Please try again later.");
           window.location.href = "/login.html";
         </script>
       `);
@@ -123,7 +123,7 @@ app.post('/login', async (req, res) => {
     console.error('Login error:', error);
     res.status(500).send(`
       <script>
-        alert("Login failed. Please try again.");
+        sessionStorage.setItem("loginError", "Login failed. Please try again.");
         window.location.href = "/login.html";
       </script>
     `);
@@ -210,14 +210,14 @@ app.post('/register', async (req, res) => {
     console.error('Registration error:', error);
     res.status(500).send(`
       <script>
-        alert("Registration failed. Please try again.");
+        sessionStorage.setItem("registerError", "Registration failed. Please try again.");
         window.location.href = "/register.html";
       </script>
     `);
   }
 });
 
-// Protected route example - middleware to check if user is logged in
+// Protected route middleware to check if user is logged in
 const requireLogin = (req, res, next) => {
   if (req.session.isLoggedIn) {
     next();
@@ -226,7 +226,11 @@ const requireLogin = (req, res, next) => {
   }
 };
 
-// Example of a protected route
+// Protected routes
+app.get('/dashboard.html', requireLogin, (req, res) => {
+  res.sendFile(path.join(__dirname, 'HTML', 'dashboard.html'));
+});
+
 app.get('/api/profile', requireLogin, (req, res) => {
   res.json({ user: req.session.user });
 });
