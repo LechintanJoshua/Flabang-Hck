@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proiecte Active - ONG United</title>
+    <title>Active projects - ONG United</title>
     <link rel="stylesheet" href="../CSS/pro-act-style.css">
     <style>
         /* Popup Form Styling */
@@ -101,13 +101,13 @@
 <header>
     <button class="button" id="createProjectBtn">Create a project</button>
     <div class="dropdown">
-        <button onclick="toggleDropdown()">Meniu &#9662;</button>
+        <button onclick="toggleDropdown()">Menu &#9662;</button>
         <div class="dropdown-content" id="dropdownMenu">
             <a href="index.html">Home</a>
             <a href="login.html">Login</a>
             <a href="register.html">Register</a>
             <a href="dashboard.html">Dashboard</a>
-            <a href="proiecte-active.html">Proiecte active</a>
+            <a href="proiecte-active.html">Active projects</a>
         </div>
     </div>
 </header>
@@ -116,7 +116,7 @@
     <!-- Secțiunea de proiecte active -->
     <section class="section-background">
         <div class="proiecte-container">
-            <h2 class="proiecte-titlu">Proiecte Active</h2>
+            <h2 class="proiecte-titlu">Active projects</h2>
 
             <div class="proiecte-grid" id="proiecte-grid">
                 <!-- Proiectele vor fi adăugate dinamic din JavaScript -->
@@ -128,46 +128,46 @@
     <div id="formular-proiect" class="formular-popup">
         <div class="formular-continut">
             <span class="close-button" id="closeFormBtn">&times;</span>
-            <h3>Adaugă un proiect nou</h3>
+            <h3>Add a new project</h3>
             <form id="form-proiect-nou">
                 <div class="form-group">
-                    <label for="titlu">Titlu proiect:</label>
+                    <label for="titlu">Project title:</label>
                     <input type="text" id="titlu" name="titlu" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="descriere">Descriere:</label>
+                    <label for="descriere">About:</label>
                     <textarea id="descriere" name="descriere" rows="4" required></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label for="imagine">URL Imagine:</label>
+                    <label for="imagine">Image URL:</label>
                     <input type="text" id="imagine" name="imagine" value="https://placehold.co/600x400/0097b2/white?text=Proiect+Nou">
                 </div>
                 
                 <div class="form-group">
-                    <label for="progres">Progres (%):</label>
+                    <label for="progres">Progress (%):</label>
                     <input type="number" id="progres" name="progres" min="0" max="100" value="0">
                 </div>
                 
                 <div class="form-group">
-                    <label for="donatori">Număr donatori:</label>
+                    <label for="donatori">Number of donors:</label>
                     <input type="number" id="donatori" name="donatori" min="0" value="0">
                 </div>
                 
                 <div class="form-group">
-                    <label for="voluntari">Număr voluntari:</label>
+                    <label for="voluntari">Number of volunteers:</label>
                     <input type="number" id="voluntari" name="voluntari" min="0" value="0">
                 </div>
                 
                 <div class="form-group">
-                    <label for="etichete">Etichete (separate prin virgulă):</label>
+                    <label for="etichete">Etiquetes (separated by comma):</label>
                     <input type="text" id="etichete" name="etichete" placeholder="Ex: Educație, Copii, Rural">
                 </div>
                 
                 <div class="form-actions">
-                    <button type="submit" class="submit-button">Adaugă proiect</button>
-                    <button type="button" class="cancel-button" id="cancelBtn">Anulează</button>
+                    <button type="submit" class="submit-button">Add project</button>
+                    <button type="button" class="cancel-button" id="cancelBtn">Cancel</button>
                 </div>
             </form>
         </div>
@@ -178,47 +178,47 @@
         const proiecteActive = [
             {
                 id: 1,
-                titlu: "Educație pentru toți",
-                imagine: "https://placehold.co/600x400/0097b2/white?text=Educație",
-                descriere: "Oferim acces la educație de calitate copiilor din comunitățile vulnerabile, prin ateliere, mentorat și resurse educaționale.",
+                titlu: "Education for all",
+                imagine: "https://placehold.co/600x400/0097b2/white?text=Education",
+                descriere: "We provide access to quality education to children from vulnerable communities, through workshops, mentoring, and educational resources.",
                 progres: 75, // procent
                 donatori: 128,
                 voluntari: 45,
-                etichete: ["Educație", "Copii", "Rural"],
-                linkImplicare: "#implicare-educatie"
+                etichete: ["Education", "Kids", "Rural"],
+                linkImplicare: "#implication-education"
             },
             {
                 id: 2,
-                titlu: "Plantăm pentru viitor",
-                imagine: "https://placehold.co/600x400/0097b2/white?text=Mediu",
-                descriere: "Campanie de împădurire în zone afectate de defrișări. Fiecare copac plantat ajută la restaurarea ecosistemului și combaterea schimbărilor climatice.",
+                titlu: "Planting trees",
+                imagine: "https://placehold.co/600x400/0097b2/white?text=Environment",
+                descriere: "Afforestation campaign in areas affected by deforestation. Every tree planted helps restore the ecosystem and combat climate change.",
                 progres: 60,
                 donatori: 312,
                 voluntari: 89,
-                etichete: ["Mediu", "Împădurire", "Climă"],
-                linkImplicare: "#implicare-mediu"
+                etichete: ["Environment", "Afforestation", "Climate"],
+                linkImplicare: "#implication-environment"
             },
             {
                 id: 3,
-                titlu: "Masă caldă pentru vârstnici",
-                imagine: "https://placehold.co/600x400/0097b2/white?text=Vârstnici",
-                descriere: "Asigurăm mese calde zilnice și companie pentru persoanele vârstnice singure sau în dificultate, aducând un strop de bucurie și sprijin.",
+                titlu: "Hot meal for the elderly",
+                imagine: "https://placehold.co/600x400/0097b2/white?text=Eldery",
+                descriere: "We provide daily hot meals and company for elderly people who are alone or in difficulty, bringing a touch of joy and support.",
                 progres: 82,
                 donatori: 256,
                 voluntari: 63,
-                etichete: ["Social", "Vârstnici", "Sprijin"],
-                linkImplicare: "#implicare-social"
+                etichete: ["Social", "Eldery", "Support"],
+                linkImplicare: "#implication-social"
             },
             {
                 id: 4,
-                titlu: "Tehnologie pentru școli",
-                imagine: "https://placehold.co/600x400/0097b2/white?text=Tehnologie",
-                descriere: "Dotăm școlile din mediul rural cu echipamente IT și pregătim profesorii pentru a oferi educație digitală elevilor.",
+                titlu: "Technology for schools",
+                imagine: "https://placehold.co/600x400/0097b2/white?text=Technology",
+                descriere: "We equip rural schools with IT equipment and train teachers to provide digital education to students.",
                 progres: 45,
                 donatori: 94,
                 voluntari: 27,
-                etichete: ["Educație", "Tehnologie", "Digital"],
-                linkImplicare: "#implicare-tehnologie"
+                etichete: ["Education", "Technology", "Digital" ],
+                linkImplicare: "#implication-technology"
 
             }
         ];
@@ -258,7 +258,7 @@
                             <span>${proiect.voluntari} voluntari</span>
                         </div>
                         
-                        <a href="${proiect.linkImplicare}" class="proiect-buton">Implică-te</a>
+                        <a href="${proiect.linkImplicare}" class="proiect-buton">Get involved</a>
                     </div>
                 `;
 
