@@ -129,7 +129,8 @@ button[type="submit"]:hover {
 
 .card img {
     width: 100%;
-    border-radius: 8px;
+   height: 30vh;
+    border-radius: 20%;
 }
 
 .loading-bar {

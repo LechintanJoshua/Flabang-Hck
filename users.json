@@ -38,5 +38,21 @@
     "email": "mai@gmail.com",
     "password": "$2b$10$A3UWP0b.q7vpVaglqDDevOsr8IRDRx60aIjdiVlXf.3BeRQEPZIm6",
     "createdAt": "2025-03-15T22:26:15.794Z"
+  },
+  {
+    "id": "1742120502558",
+    "firstName": "f",
+    "lastName": "f",
+    "email": "f@f.f",
+    "password": "$2b$10$shRkSHnsBvKGzwkKD3jlPeh3SNNIRoZvgPf6vRla0FfjbYEdPR.JS",
+    "createdAt": "2025-03-16T10:21:42.558Z"
+  },
+  {
+    "id": "1742121431792",
+    "firstName": "a",
+    "lastName": "a",
+    "email": "a@a.com",
+    "password": "$2b$10$BVPzZSWgK175oCEjRDU4eeen4ghPqhJOWkz12KtIMvQmnLuJHeUlK",
+    "createdAt": "2025-03-16T10:37:11.792Z"
   }
 ]
