@@ -6,9 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proiecte Active - ONG United</title>
     <link rel="stylesheet" href="../CSS/pro-act-style.css">
+    <style>
+        /* Popup Form Styling */
+        .formular-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .formular-continut {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #777;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .submit-button,
+        .cancel-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .submit-button {
+            background-color: #0097b2;
+            color: white;
+        }
+
+        .cancel-button {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        .submit-button:hover {
+            background-color: #007a8e;
+        }
+
+        .cancel-button:hover {
+            background-color: #e1e1e1;
+        }
+    </style>
 </head>
 <header>
-    <button class="button">Create a project</button>
+    <button class="button" id="createProjectBtn">Create a project</button>
     <div class="dropdown">
         <button onclick="toggleDropdown()">Meniu &#9662;</button>
         <div class="dropdown-content" id="dropdownMenu">
@@ -30,13 +121,57 @@
             <div class="proiecte-grid" id="proiecte-grid">
                 <!-- Proiectele vor fi adăugate dinamic din JavaScript -->
             </div>
-
-            <!-- Formularul pentru adăugare proiect -->
-            <div id="formular-proiect" class="formular-popup">
-                <!-- codul formularului -->
-            </div>
         </div>
     </section>
+
+    <!-- Formularul pentru adăugare proiect -->
+    <div id="formular-proiect" class="formular-popup">
+        <div class="formular-continut">
+            <span class="close-button" id="closeFormBtn">&times;</span>
+            <h3>Adaugă un proiect nou</h3>
+            <form id="form-proiect-nou">
+                <div class="form-group">
+                    <label for="titlu">Titlu proiect:</label>
+                    <input type="text" id="titlu" name="titlu" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="descriere">Descriere:</label>
+                    <textarea id="descriere" name="descriere" rows="4" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="imagine">URL Imagine:</label>
+                    <input type="text" id="imagine" name="imagine" value="https://placehold.co/600x400/0097b2/white?text=Proiect+Nou">
+                </div>
+                
+                <div class="form-group">
+                    <label for="progres">Progres (%):</label>
+                    <input type="number" id="progres" name="progres" min="0" max="100" value="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="donatori">Număr donatori:</label>
+                    <input type="number" id="donatori" name="donatori" min="0" value="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="voluntari">Număr voluntari:</label>
+                    <input type="number" id="voluntari" name="voluntari" min="0" value="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="etichete">Etichete (separate prin virgulă):</label>
+                    <input type="text" id="etichete" name="etichete" placeholder="Ex: Educație, Copii, Rural">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="submit-button">Adaugă proiect</button>
+                    <button type="button" class="cancel-button" id="cancelBtn">Anulează</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script>
         // Array cu datele proiectelor active
@@ -91,6 +226,7 @@
         // Funcția pentru a crea și adăuga cardurile de proiecte în pagină
         function afișeazăProiecte() {
             const containerProiecte = document.getElementById('proiecte-grid');
+            containerProiecte.innerHTML = ''; // Clear existing projects
 
             proiecteActive.forEach(proiect => {
                 // Creăm elementul pentru cardul proiectului
@@ -131,8 +267,74 @@
             });
         }
 
-        // Rulăm funcția când se încarcă pagina
-        document.addEventListener('DOMContentLoaded', afișeazăProiecte);
+        // Funcție pentru afișarea formularului popup
+        function afișeazăFormular() {
+            document.getElementById('formular-proiect').style.display = 'flex';
+        }
+
+        // Funcție pentru ascunderea formularului popup
+        function ascundeFormular() {
+            document.getElementById('formular-proiect').style.display = 'none';
+            document.getElementById('form-proiect-nou').reset(); // Reset form
+        }
+
+        // Gestionarea evenimentelor formularului
+        document.addEventListener('DOMContentLoaded', function() {
+            // Afișează proiectele existente
+            afișeazăProiecte();
+
+            // Event listener pentru butonul de creare proiect
+            document.getElementById('createProjectBtn').addEventListener('click', afișeazăFormular);
+            
+            // Event listeners pentru închiderea formularului
+            document.getElementById('closeFormBtn').addEventListener('click', ascundeFormular);
+            document.getElementById('cancelBtn').addEventListener('click', ascundeFormular);
+            
+            // Închide formularul când se face click în afara lui
+            window.addEventListener('click', function(event) {
+                if (event.target === document.getElementById('formular-proiect')) {
+                    ascundeFormular();
+                }
+            });
+
+            // Gestionează trimiterea formularului
+            document.getElementById('form-proiect-nou').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Obține valorile din formular
+                const titlu = document.getElementById('titlu').value;
+                const descriere = document.getElementById('descriere').value;
+                const imagine = document.getElementById('imagine').value;
+                const progres = parseInt(document.getElementById('progres').value) || 0;
+                const donatori = parseInt(document.getElementById('donatori').value) || 0;
+                const voluntari = parseInt(document.getElementById('voluntari').value) || 0;
+                const eticheteText = document.getElementById('etichete').value;
+                const etichete = eticheteText.split(',').map(item => item.trim()).filter(item => item !== '');
+                
+                // Creează obiectul noului proiect
+                const proiectNou = {
+                    id: proiecteActive.length + 1,
+                    titlu: titlu,
+                    imagine: imagine,
+                    descriere: descriere,
+                    progres: progres,
+                    donatori: donatori,
+                    voluntari: voluntari,
+                    etichete: etichete,
+                    linkImplicare: "#implicare-nou"
+                };
+                
+                // Adaugă proiectul nou în array
+                proiecteActive.push(proiectNou);
+                
+                // Reafișează toate proiectele
+                afișeazăProiecte();
+                
+                // Închide formularul
+                ascundeFormular();
+            });
+        });
+
         function toggleDropdown() {
             var dropdown = document.getElementById("dropdownMenu");
             if (dropdown.style.display === "block") {
@@ -142,20 +344,13 @@
             }
         }
 
-        window.onclick = function (event) {
+        window.onclick = function(event) {
             if (!event.target.matches('.dropdown button')) {
                 var dropdown = document.getElementById("dropdownMenu");
                 if (dropdown.style.display === "block") {
                     dropdown.style.display = "none";
                 }
             }
-        }
-
-        function openGoogleMaps() {
-            window.open('https://maps.google.com', '_blank');
-        }
-        function logout() {
-            window.location.href = '/logout';
         }
     </script>
 </body>

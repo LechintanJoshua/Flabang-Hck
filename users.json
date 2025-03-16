@@ -54,5 +54,13 @@
     "email": "a@a.com",
     "password": "$2b$10$BVPzZSWgK175oCEjRDU4eeen4ghPqhJOWkz12KtIMvQmnLuJHeUlK",
     "createdAt": "2025-03-16T10:37:11.792Z"
+  },
+  {
+    "id": "1742122446159",
+    "firstName": "a",
+    "lastName": "a",
+    "email": "a@a.a",
+    "password": "$2b$10$Bo0/7JtTcQuaPiDlIfVAL.2Wbr1aHpWm6e2NxLCQqfQVW4/4dnsD6",
+    "createdAt": "2025-03-16T10:54:06.159Z"
   }
 ]
